@@ -106,7 +106,7 @@ A comprehensive market intelligence platform that scrapes, processes, and analyz
 
 ## About
 
-Built by **Daniel dos Santo Reis** — AI Engineer & Data Architect based in Zurich, Switzerland.
+Built by **Daniel dos Santos Reis** — AI Engineer & Data Architect based in Zurich, Switzerland.
 Part of the [Loomix](https://github.com/loomix-ai) ecosystem.
 
 ## License
