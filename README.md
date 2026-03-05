@@ -96,6 +96,56 @@ A comprehensive market intelligence platform that scrapes, processes, and analyz
 
 > Dashboard screenshots coming soon — platform in active development.
 
+## Portfolio Demo Stack (This Branch)
+
+This branch adds a runnable demo stack with:
+
+- **Backend:** Python + FastAPI (`backend/`)
+  - `GET /health`
+  - `GET /api/market-metrics` (sample market intelligence payload)
+- **Frontend:** Next.js 14 + TypeScript (`frontend/`)
+  - Server-rendered dashboard consuming the FastAPI endpoint
+- **CI:** GitHub Actions (`.github/workflows/ci.yml`)
+  - Backend pytest job
+  - Frontend build job
+
+## Local Development
+
+### 1) Run backend
+
+```bash
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8000
+```
+
+### 2) Run frontend
+
+```bash
+cd frontend
+npm install
+NEXT_PUBLIC_API_URL=http://localhost:8000 npm run dev
+```
+
+Open `http://localhost:3000`.
+
+## Testing
+
+### Backend tests
+
+```bash
+PYTHONPATH=backend pytest -q backend/tests
+```
+
+### Frontend production build
+
+```bash
+cd frontend
+npm run build
+```
+
 ## Use Cases
 
 - **Influencer Marketing** — Find the right influencers based on real audience data, not follower counts
