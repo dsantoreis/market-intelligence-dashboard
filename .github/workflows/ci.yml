@@ -21,7 +21,7 @@ jobs:
       - name: Run tests
         env:
           PYTHONPATH: ${{ github.workspace }}/backend
-        run: pytest -q
+        run: pytest -q --cov=app --cov-report=term-missing --cov-fail-under=80
 
   frontend-build:
     runs-on: ubuntu-latest

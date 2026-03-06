@@ -201,3 +201,10 @@ If this helps, star the repo and open an issue with your use case.
 
 - Local docs site config: `mkdocs.yml`
 - Entry point: `docs/index.md`
+
+## Portfolio Baseline
+
+- Docs Astro Starlight: `docs-site/`
+- Docker: `Dockerfile`
+- Kubernetes: `k8s/backend-deployment.yaml`
+- Coverage gate: CI enforces `pytest --cov --cov-fail-under=80`
