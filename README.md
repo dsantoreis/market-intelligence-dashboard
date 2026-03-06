@@ -206,5 +206,6 @@ If this helps, star the repo and open an issue with your use case.
 
 - Docs Astro Starlight: `docs-site/`
 - Docker: `Dockerfile`
+- Docker Compose: `docker-compose.yml`
 - Kubernetes: `k8s/backend-deployment.yaml`
 - Coverage gate: CI enforces `pytest --cov --cov-fail-under=80`
