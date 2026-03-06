@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crowdscope-docs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: crowdscope-docs
+  template:
+    metadata:
+      labels:
+        app: crowdscope-docs
+    spec:
+      containers:
+        - name: docs
+          image: crowdscope-docs:latest
+          ports:
+            - containerPort: 4321

@@ -1,3 +1,5 @@
+[![CI](../../actions/workflows/ci.yml/badge.svg)](#) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+
 <p align="center">
   <img src="./assets/hero.png" alt="Market Intelligence Dashboard" width="600" />
 </p>
@@ -96,6 +98,56 @@ A comprehensive market intelligence platform that scrapes, processes, and analyz
 
 > Dashboard screenshots coming soon — platform in active development.
 
+## Portfolio Demo Stack (This Branch)
+
+This branch adds a runnable demo stack with:
+
+- **Backend:** Python + FastAPI (`backend/`)
+  - `GET /health`
+  - `GET /api/market-metrics` (sample market intelligence payload)
+- **Frontend:** Next.js 14 + TypeScript (`frontend/`)
+  - Server-rendered dashboard consuming the FastAPI endpoint
+- **CI:** GitHub Actions (`.github/workflows/ci.yml`)
+  - Backend pytest job
+  - Frontend build job
+
+## Local Development
+
+### 1) Run backend
+
+```bash
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8000
+```
+
+### 2) Run frontend
+
+```bash
+cd frontend
+npm install
+NEXT_PUBLIC_API_URL=http://localhost:8000 npm run dev
+```
+
+Open `http://localhost:3000`.
+
+## Testing
+
+### Backend tests
+
+```bash
+PYTHONPATH=backend pytest -q backend/tests
+```
+
+### Frontend production build
+
+```bash
+cd frontend
+npm run build
+```
+
 ## Use Cases
 
 - **Influencer Marketing** — Find the right influencers based on real audience data, not follower counts
@@ -112,3 +164,48 @@ Part of the [Loomix](https://github.com/loomix-ai) ecosystem.
 ## License
 
 Proprietary. Documentation, architecture, and aggregated metrics shared for portfolio purposes. Raw data and scraping logic are private.
+
+
+## Conversion Standard
+
+### Hero
+Production-ready solution for a concrete business problem with measurable outcome.
+
+### Problem
+Describe the pain with one sentence and a real operator context.
+
+### Demo
+Add a GIF at `docs/assets/demo.gif` and reference it here.
+
+### Quickstart (3 commands)
+```bash
+make setup || pnpm install || npm install
+make test || pnpm test || npm test
+make run || pnpm dev || npm run dev
+```
+
+### Architecture
+Document API, workers, and storage in `docs/architecture.md`.
+
+### Results
+Add benchmark, latency, throughput, or conversion impact.
+
+### Roadmap
+Include 30-day and 90-day milestones.
+
+### CTA
+If this helps, star the repo and open an issue with your use case.
+
+
+## Docs
+
+- Local docs site config: `mkdocs.yml`
+- Entry point: `docs/index.md`
+
+## Portfolio Baseline
+
+- Docs Astro Starlight: `docs-site/`
+- Docker: `Dockerfile`
+- Docker Compose: `docker-compose.yml`
+- Kubernetes: `k8s/backend-deployment.yaml`
+- Coverage gate: CI enforces `pytest --cov --cov-fail-under=80`
